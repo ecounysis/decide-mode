@@ -386,7 +386,7 @@
   (decide-choose-from-table table-name table-name))
 
 (defun decide-visible-tables ()
-  (remove-if
+  (cl-remove-if
    (lambda (x)
      (string-match "[.]" (car x)))
    decide-tables))
@@ -410,7 +410,7 @@
    (t line)))
 
 (defun decide-table-parse-lines (lines)
-  (remove-if-not
+  (cl-remove-if-not
    (lambda (x) (or (consp x) (stringp x)))
    (mapcar 'decide-table-parse-line lines)))
 
